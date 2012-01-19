@@ -5,8 +5,8 @@ module.exports = Hasshu;
  * Hasshu (hash in japanese) is a simple hash library.
  * @param hash: Pass in hash object. (Optional)
  *   ex: 
- *    var hash = new Hasshu({ key1: 'some value' });
- *     var hash2 = new Hasshu({ 'key-with-hyphen': 'some other value'}); 
+ *   var hash = new Hasshu({ key1: 'some value' });
+ *   var hash2 = new Hasshu({ 'key-with-hyphen': 'some other value'}); 
  */
 function Hasshu(hash) {
   if (!(this instanceof Hasshu))
@@ -64,7 +64,7 @@ function Hasshu(hash) {
 
 
   /*
-   * Returns array of keys in hash.
+   * Returns array of keys.
    */
   this.keys = function() {
     return Object.keys(hash);
