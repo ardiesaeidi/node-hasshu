@@ -27,7 +27,62 @@ Usage
     people.set('Jimmy', { age: 32 });
 
 
+
+
 Installation
 ============
 
-  npm install hasshu
+    npm install hasshu
+
+
+
+
+Constructor
+===========
+
+Pass in hash like object. (Optional)
+
+    Hasshu();
+    Hasshu({ a: 'some val' });
+
+
+
+
+Methods
+=======
+
+set(key: string, val: object)
+-----------------------------
+Will add or update an item in hash.
+
+get(key: string)
+----------------
+Returns value in hash for key.
+
+remove(key: string)
+-------------------
+Remove item from hash by key.
+
+hasKey(key: string)
+-------------------
+Returns true if key exists in hash.
+
+forEach(cb: function)
+----------------------
+Iterate through hash passing key and val into callback.
+
+keys
+-----
+Returns array of keys.
+
+length
+-------
+Returns the number of items in hash.
+
+values
+-------
+Returns an array of values.
+
+filter(cb: function)
+------
+Creates a new hash with all elements that pass the test in callback.

@@ -26,7 +26,7 @@ function Hasshu(hash) {
 
 
   /*
-   * Gets item in hash by key.
+   * Returns value in hash for key.
    * @param key: Key in hash.
    */
   this.get = function(key) {
@@ -57,6 +57,9 @@ function Hasshu(hash) {
    * @param cb: Anon function with (key, val) passed in.
    */
   this.forEach = function(cb) {
+    if (typeof(cb) !== 'function')
+      throw new TypeError('cb must be a function');
+
     this.keys().forEach(function(key) {
       cb(key, hash[key]);
     });
