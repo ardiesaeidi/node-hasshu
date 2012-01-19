@@ -52,6 +52,12 @@ vows.describe('Hasshu').addBatch({
       });
 
       assert.equal(janes.length(), 1);
+    },
+    'can use hasOwnProperty as key': function(hash) {
+      var key = 'hasOwnProperty';
+      hash.set(key, 'booyah');
+
+      assert.isTrue(hash.hasKey(key));
     }
   }
 

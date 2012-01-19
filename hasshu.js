@@ -13,7 +13,7 @@ function Hasshu(hash) {
     return new Hasshu(hash);
 
   if (typeof(hash) === 'undefined')
-    hash = {};
+    hash = Object.create(null);
 
   /*
    * Will add or update an item in hash.
@@ -48,7 +48,7 @@ function Hasshu(hash) {
    * @param key: Key to check.
    */
   this.hasKey = function(key) {
-    return hash.hasOwnProperty(key);
+    return this.keys().indexOf(key) > -1;
   };
 
 

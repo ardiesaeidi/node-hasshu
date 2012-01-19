@@ -1,6 +1,5 @@
 var Hasshu = require('./hasshu');
 
-
 var people = new Hasshu({'Joe': { age: 25 }, 'Jane': { age: 23 } });
 
 // enumerate over hash
@@ -24,3 +23,4 @@ var jos = people.filter(function(key, val) {
   });
 
 console.log('People with name that begins with "Jo"',jos.keys());
+
