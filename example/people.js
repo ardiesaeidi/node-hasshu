@@ -6,7 +6,7 @@ var people = new Hasshu({'Joe': { age: 25 }, 'Jane': { age: 23 } });
 
 // enumerate over hash
 people.forEach(function(key, val) {
-	console.log('value for key: %s is ', key, val);
+  console.log('value for key: %s is ', key, val);
 });
 
 // adding a new person

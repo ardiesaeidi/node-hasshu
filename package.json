@@ -4,10 +4,10 @@
   , "version": "0.1.0"
   , "engines": ["node >= 0.6.0"]
   , "main": "./hasshu.js"
-	, "author": "Ardie Saeidi <ardalan.saeidi@gmail.com>"
-	, "repository" : 
-		{ 
-			"type" : "git"
+  , "author": "Ardie Saeidi <ardalan.saeidi@gmail.com>"
+  , "repository" : 
+    { 
+      "type" : "git"
       , "url" : "https://github.com/seppuku/node-hasshu"
-   	}
+    }
 }
