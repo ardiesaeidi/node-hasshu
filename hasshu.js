@@ -91,4 +91,22 @@ function Hasshu(hash) {
 
     return values;
   };
+
+  
+  /*
+   * Creates a new hash with all elements that pass the test in callback.
+   * @param cb: Function that returns true with (key, val) passed in.
+   */
+  this.filter = function(cb) {
+    if (typeof(cb) !== 'function')
+      throw new TypeError('cb must be a function');
+
+    var hash = new Hasshu();
+    this.forEach(function(key, val) {
+      if (cb(key, val))
+        hash.set(key, val);
+    });
+
+    return hash;
+  };
 }
