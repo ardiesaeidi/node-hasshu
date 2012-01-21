@@ -4,7 +4,7 @@ var people = new Hasshu({'Joe': { age: 25 }, 'Jane': { age: 23 } });
 
 // enumerate over hash
 people.forEach(function(key, val) {
-  console.log('value for key: %s is ', key, val);
+  console.log('Value for key: %s is ', key, val);
 });
 
 // adding a new person
@@ -24,3 +24,14 @@ var jos = people.filter(function(key, val) {
 
 console.log('People with name that begins with "Jo"',jos.keys());
 
+// merging with another hash
+var newPeople = new Hasshu({ 'Jorge': { age: 43 }});
+people.merge(newPeople);
+
+console.log('Merged with newPeople hash', people.keys());
+
+// merging with plain obj
+var moreNewPeople = { 'Jimmy': { age: 29 } };
+people.merge(moreNewPeople);
+
+console.log('Merged with moreNewPeople object', people.keys());
