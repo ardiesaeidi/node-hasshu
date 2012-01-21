@@ -84,10 +84,12 @@ values
 Returns an array of values.
 
 filter(cb: function)
-------
+--------------------
 Creates a new hash with all elements that pass the test in callback.
 
-
+merge(hash: [Hasshu instance or object])
+----------------------------------------
+Merges hash or object with current hash.
 
 
 License
