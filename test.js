@@ -22,13 +22,10 @@ vows.describe('Hasshu').addBatch({
     'can set a value by key': function(hash) {
       var key = 'Joe', 
         joe = hash.get(key);
-
-      console.log('%s was', key, joe);
-      
+ 
       joe.age = 56;
       hash.set(key, joe);
 
-      console.log('%s is now', key,  joe);
       assert.equal(joe.age, hash.get(key).age);
     },
     'can test for key': function(hash) {
@@ -58,6 +55,33 @@ vows.describe('Hasshu').addBatch({
       hash.set(key, 'booyah');
 
       assert.isTrue(hash.hasKey(key));
+    },
+    'can merge with hash like obj': function(hash) {
+      
+      var key = 'Joanna',
+        age = 33,
+        otherHash = {};
+
+      assert.isFalse(hash.hasKey(key));
+
+      otherHash[key] = { age: age };
+      hash.merge(otherHash);
+
+      assert.isTrue(hash.hasKey(key));
+      assert.equal(hash.get(key).age, age);
+    },
+    'can merge with hasshu': function(hash) {
+      var key = 'Jorge',
+        age = 43,
+        otherHash = new Hasshu();
+
+      assert.isFalse(hash.hasKey(key));
+
+      otherHash.set(key, { age: age });
+      hash.merge(otherHash);
+
+      assert.isTrue(hash.hasKey(key));
+      assert.equal(hash.get(key).age, age);
     }
   }
 

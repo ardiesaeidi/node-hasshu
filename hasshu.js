@@ -15,6 +15,7 @@ function Hasshu(hash) {
   if (typeof(hash) === 'undefined')
     hash = Object.create(null);
 
+
   /*
    * Will add or update an item in hash.
    * @param key: Key in hash.
@@ -104,12 +105,31 @@ function Hasshu(hash) {
     if (typeof(cb) !== 'function')
       throw new TypeError('cb must be a function');
 
-    var hash = new Hasshu();
+    var result = new Hasshu();
     this.forEach(function(key, val) {
       if (cb(key, val))
-        hash.set(key, val);
+        result.set(key, val);
     });
 
-    return hash;
+    return result;
+  };
+
+
+  /*
+   * Merges an existing Hasshu instance or hash like obj with this hash.
+   * @param obj: Hasshu instance or hash like obj.
+   */
+  this.merge = function(obj) {
+    var self = this;
+
+    if (obj instanceof Hasshu) {
+      obj.forEach(function(key, val) {
+        self.set(key, val);
+      });
+    } else {
+      Object.keys(obj).forEach(function(key) {
+        self.set(key, obj[key]);
+      });
+    }
   };
 }
