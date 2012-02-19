@@ -12,81 +12,86 @@ function Hasshu(hash) {
   if (!(this instanceof Hasshu))
     return new Hasshu(hash);
 
-  if (typeof(hash) === 'undefined')
-    hash = Object.create(null);
+  Object.defineProperty(this, 'hash', {
+    value: hash || Object.create(null)
+  });
+}
 
+
+Hasshu.prototype = {
 
   /*
    * Will add or update an item in hash.
    * @param key: Key in hash.
    * @param val: Value to save.
    */
-  this.set = function(key, val) {
-    hash[key] = val;
-  };
+  set: function(key, val) {
+    this.hash[key] = val;
+  },
 
 
   /*
    * Returns value in hash for key.
    * @param key: Key in hash.
    */
-  this.get = function(key) {
-    return hash[key];
-  };
+  get: function(key) {
+    return this.hash[key];
+  },
 
 
   /*
    * Remove item from hash by key.
    * @param key: Key in hash to delete.
    */
-  this.remove = function(key) {
-    delete hash[key];
-  };
+  remove: function(key) {
+    delete this.hash[key];
+  },
 
 
   /*
    * Returns true if key exists in hash.
    * @param key: Key to check.
    */
-  this.hasKey = function(key) {
+  hasKey: function(key) {
     return this.keys().indexOf(key) > -1;
-  };
+  },
 
 
   /*
    * Iterate through hash.
    * @param cb: Anon function with (key, val) passed in.
    */
-  this.forEach = function(cb) {
+  forEach: function(cb) {
     if (typeof(cb) !== 'function')
       throw new TypeError('cb must be a function');
 
+    var self = this;
     this.keys().forEach(function(key) {
-      cb(key, hash[key]);
+      cb(key, self.hash[key]);
     });
-  };
+  },
 
 
   /*
    * Returns array of keys.
    */
-  this.keys = function() {
-    return Object.keys(hash);
-  };
+  keys: function() {
+    return Object.keys(this.hash);
+  },
 
 
   /*
    * Returns the number of items in hash.
    */
-  this.length = function() {
+  length: function() {
     return this.keys().length;
-  };
+  },
 
 
   /*
    * Returns an array of values.
    */
-  this.values = function() {
+  values: function() {
     var values = [];
 
     this.forEach(function(key, val) {
@@ -94,14 +99,14 @@ function Hasshu(hash) {
     });
 
     return values;
-  };
+  },
 
   
   /*
    * Creates a new hash with all elements that pass the test in callback.
    * @param cb: Function that returns true with (key, val) passed in.
    */
-  this.filter = function(cb) {
+  filter: function(cb) {
     if (typeof(cb) !== 'function')
       throw new TypeError('cb must be a function');
 
@@ -112,14 +117,14 @@ function Hasshu(hash) {
     });
 
     return result;
-  };
+  },
 
 
   /*
    * Merges an existing Hasshu instance or hash like obj with this hash.
    * @param obj: Hasshu instance or hash like obj.
    */
-  this.merge = function(obj) {
+  merge: function(obj) {
     var self = this;
 
     if (obj instanceof Hasshu) {
@@ -131,5 +136,5 @@ function Hasshu(hash) {
         self.set(key, obj[key]);
       });
     }
-  };
+  }
 }
