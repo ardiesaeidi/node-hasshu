@@ -82,6 +82,15 @@ vows.describe('Hasshu').addBatch({
 
       assert.isTrue(hash.hasKey(key));
       assert.equal(hash.get(key).age, age);
+    },
+    "can't write over internal hash property": function(hash) {
+      var key = 'Jank',
+        age = 43;
+
+      hash.set(key, { age: age });      
+      hash.hash = {}; // try writing over
+
+      assert.isTrue(hash.hasKey(key));      
     }
   }
 
