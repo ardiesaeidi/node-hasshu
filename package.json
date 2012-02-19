@@ -1,7 +1,7 @@
 { 
   "name": "hasshu"
   , "description": "A simple library for manipulating hash data structures."
-  , "version": "0.2.3"
+  , "version": "0.2.5"
   , "engines": ["node >= 0.6.0"]
   , "main": "./hasshu.js"
   , "author": "Ardie Saeidi <ardalan.saeidi@gmail.com>"
