@@ -35,10 +35,10 @@ Installation
     npm install hasshu
 
 
+Hasshu
+=========
 
-
-Constructor
-===========
+## Constructor:
 
 Pass in hash like object. (Optional)
 
@@ -48,8 +48,7 @@ Pass in hash like object. (Optional)
 
 
 
-Methods
-=======
+## Methods:
 
 set(key: string, val: object)
 -----------------------------
