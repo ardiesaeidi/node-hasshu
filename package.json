@@ -2,13 +2,12 @@
   "name": "hasshu"
   , "description": "A simple library for manipulating hash data structures."
   , "version": "0.2.5"
-  , "engines": ["node >= 0.6.0"]
+  , "engines": { "node": "*" }
   , "main": "./hasshu.js"
   , "author": "Ardie Saeidi <ardalan.saeidi@gmail.com>"
-  , "repository" : 
-    { 
+  , "repository" : {
       "type" : "git"
-      , "url" : "https://github.com/seppuku/node-hasshu"
+      , "url" : "https://github.com/ardiesaeidi/node-hasshu"
     }
   , "keywords": ["hash", "hash table", "hashtable", "dictionary"]
   , "license": "MIT"
